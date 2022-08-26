@@ -45,8 +45,7 @@ class Training:
 
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
-        raise NotImplementedError('Определите калориив %s.' %
-                                  (self.__class__.__name__))
+        raise NotImplementedError(f'Определите калориив {self.__class__.__name__}.')
 
     def show_training_info(self) -> InfoMessage:
         """Вернуть информационное сообщение о выполненной тренировке."""
@@ -124,8 +123,7 @@ def read_package(workout_type: str, data: list) -> Training:
                                        'RUN': Running,
                                        'WLK': SportsWalking}
     if workout_type in dictionary:
-        result = dictionary[workout_type](*data)
-        return result
+        return dictionary[workout_type](*data)
 
 
 def main(training: Training) -> None:
